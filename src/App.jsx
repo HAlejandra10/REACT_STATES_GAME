@@ -9,8 +9,12 @@ const TURNS = {
 
 const Square= ({ children, isSelected,updateBoard, index}) => {
   const className =`square ${isSelected ? "is-selected" :""}`
+  const handleClick = () => {
+    updateBoard()
+  }
+
   return(
-  <div className={className}>
+  <div onClick={handleClick} className={className}>
     {children}
   </div>
   )
@@ -27,6 +31,8 @@ function App() {
 
   const [turn, setTurn] = useState(TURNS.x)
 
+  const updateBoard = () => {}
+
   return (
   <main className="board">
     <h1>Triqui</h1> 
@@ -37,6 +43,7 @@ function App() {
            <Square
             key={index}
             index={index}
+            updateBoard={updateBoard}
            >
             {/* :) */}
             {board[index]}

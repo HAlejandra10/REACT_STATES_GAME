@@ -19,10 +19,13 @@ function App() {
   //2.
   // const board = Array(9).fill(null)
   //3.
-  // const [board, setBoard] = useState(Array(9).fill(null))
+  const [board, setBoard] = useState(Array(9).fill(null))
   // console.log(board)
   //:) podriamos hacerlo manual para verl en screen:
-  const [board, setBoard] = useState(["x", "x", "x", "0", "0", "0", "x", "0", "x"])
+  // const [board, setBoard] = useState(["x", "x", "x", "0", "0", "0", "x", "0", "x"])
+
+  const [turn, setTurn] = useState(TURNS.x)
+
   return (
   <main className="board">
     <h1>Triqui</h1> 
@@ -41,6 +44,10 @@ function App() {
           )
         })
       }
+    </section>
+    <section className="turn">
+      <Square isSelected={turn === TURNS.x}>{TURNS.x}</Square>
+      <Square  isSelected={turn === TURNS.o}>{TURNS.o}</Square>
     </section>
   </main>
   )

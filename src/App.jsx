@@ -32,6 +32,11 @@ function App() {
   const [turn, setTurn] = useState(TURNS.x)
 
   const updateBoard = () => {
+    const newBoard = [...board]
+    newBoard[index] = turn //x ó o
+    //updating the board
+    setBoard(newBoard)
+
     const newTurn =  turn === TURNS.x ? TURNS.o : TURNS.x
     setTurn(newTurn)
   }

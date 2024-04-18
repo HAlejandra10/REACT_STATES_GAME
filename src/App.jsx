@@ -32,6 +32,7 @@ function App() {
   const [turn, setTurn] = useState(TURNS.x)
 
   const updateBoard = (index) => {
+     //nunca mutar(modificar) las props ni el estado
     const newBoard = [...board]
     newBoard[index] = turn //x ó o
     //updating the board
